@@ -103,12 +103,29 @@ button {
 </head>
 
 <body>
+    <div id="musicOverlay" style="
+    position:fixed;
+    inset:0;
+    background: rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    color:white;
+    font-size:22px;
+    text-align:center;
+    cursor:pointer;">
+    
+    🎶 Tap anywhere to start the music 💖
+</div>
 
 <!-- 🌙 Moon -->
 <div class="moon"></div>
 
 <!-- 🎶 Music -->
 <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -125,6 +142,13 @@ button {
 </div>
 
 <script>
+    const music = document.getElementById("bgMusic");
+const overlay = document.getElementById("musicOverlay");
+
+overlay.addEventListener("click", () => {
+    music.play();
+    overlay.style.display = "none";
+});
 /* ✨ Stars */
 for (let i = 0; i < 120; i++) {
     const star = document.createElement("div");
