@@ -156,7 +156,7 @@ button {
 </body>
 
 <!-- 🎶 Music -->
-<audio id="bgMusic" controls loop>
+<audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -186,9 +186,11 @@ const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
 function startMusic() {
-    if (!musicStarted) {
+    const music = document.getElementById("bgMusic");
+    if (!music.dataset.started) {
+        music.volume = 0.8;
         music.play().catch(() => {});
-        musicStarted = true;
+        music.dataset.started = "true";
     }
 }
 
