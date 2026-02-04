@@ -150,10 +150,7 @@ button {
 
 </body>
 
-<!-- 🎶 Music -->
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+
 
 <!-- 🌌 Background -->
 <div id="background">
@@ -162,7 +159,7 @@ button {
 
 <!-- 💖 Content -->
 <div id="content">
-    <div class="card" onclick="startMusic()">
+    <div class="card" >
         <h1>Neha 🌙💖</h1>
         <p>
             Under this moonlit sky,<br>
@@ -170,24 +167,15 @@ button {
             Will you be my Valentine? 🌹
         </p>
 
-        <button id="yes" onclick="startMusic(); yesClicked()">Yes 💕</button>
+        <button id="yes" onclick=" yesClicked()">Yes 💕</button>
         <button id="no" onmouseover="moveNo(); startMusic()">No 🙈</button>
     </div>
 </div>
 
 <script>
-/* 🎶 Music */
-const music = document.getElementById("bgMusic");
-let musicStarted = false;
 
-function startMusic() {
-    const music = document.getElementById("bgMusic");
-    if (!music.dataset.started) {
-        music.volume = 0.8;
-        music.play().catch(() => {});
-        music.dataset.started = "true";
-    }
-}
+
+
 
 /* ✨ Stars */
 const bg = document.getElementById("background");
