@@ -9,6 +9,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    #content {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 body {
@@ -83,6 +91,7 @@ body {
     text-align: center;
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     max-width: 90%;
+    border: 3px solid red;
 }
 
 h1 { color: #ff4d6d; }
@@ -114,6 +123,31 @@ button {
 </head>
 
 <body>
+    <body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="background">
+    <div class="moon"></div>
+</div>
+
+<div id="content">
+    <div class="card" onclick="startMusic()">
+        <h1>Neha 🌙💖</h1>
+        <p>
+            Under this moonlit sky,<br>
+            every star reminds me of you ✨<br><br>
+            Will you be my Valentine? 🌹
+        </p>
+
+        <button id="yes" onclick="startMusic(); yesClicked()">Yes 💕</button>
+        <button id="no" onmouseover="moveNo(); startMusic()">No 🙈</button>
+    </div>
+</div>
+
+</body>
 
 <!-- 🎶 Music -->
 <audio id="bgMusic" loop>
