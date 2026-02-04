@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neha 🌙❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at bottom, #1b2735, #090a0f);
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🌙 Moon */
+.moon {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 15px rgba(255,255,255,0.6);
+}
+
+/* ✨ Stars */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* ❤️ Hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* 🎆 Fireworks */
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(6); opacity: 0; }
+}
+
+/* 💌 Card */
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 45px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+h1 { color: #ff4d6d; }
+
+button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 12px;
+    font-size: 16px;
+}
+
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+#no {
+    background: #ccc;
+    position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌙 Moon -->
+<div class="moon"></div>
+
+<!-- 🎶 Music -->
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>Neha 🌙💖</h1>
+    <p>
+        Under this moonlit sky,<br>
+        every star reminds me of you ✨<br><br>
+        Will you be my Valentine? 🌹
+    </p>
+
+    <button id="yes" onclick="yesClicked()">Yes 💕</button>
+    <button id="no" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<script>
+/* ✨ Stars */
+for (let i = 0; i < 120; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(star);
+}
+
+/* ❤️ Hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+/* 🎆 Fireworks */
+function firework(x, y) {
+    for (let i = 0; i < 20; i++) {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.left = x + "px";
+        fw.style.top = y + "px";
+        fw.style.background = `hsl(${Math.random()*360},100%,70%)`;
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000);
+    }
+}
+
+function yesClicked() {
+    for (let i = 0; i < 6; i++) {
+        firework(
+            Math.random() * window.innerWidth,
+            Math.random() * window.innerHeight
+        );
+    }
+
+    setTimeout(() => {
+        document.body.innerHTML = `
+        <div style="
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            flex-direction:column;
+            background: radial-gradient(circle, #1b2735, #090a0f);
+            color:white;
+            font-family:'Comic Sans MS', cursive;
+            text-align:center;">
+            <h1>🌙 I Love You, Neha 🌙</h1>
+            <p style="font-size:20px;">
+                Even the stars are celebrating tonight ✨🎆<br>
+                Happy Valentine’s 💐
+            </p>
+        </div>`;
+    }, 1200);
+}
+
+function moveNo() {
+    const noBtn = document.getElementById("no");
+    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+}
+</script>
+
+</body>
+</html>
